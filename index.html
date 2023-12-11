@@ -4,19 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RemindMe</title>
+    <title>Task Board</title>
     <link rel="stylesheet" href="./style.css">
-  </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap" rel="stylesheet"> 
+</head>
   <body>
     <main>
-        <div id="myDIV" class="header">
-            <h2>My To Do List</h2>
-            <input type="text" id="myInput" placeholder="Title...">
-            <span onclick="newElement()" class="addBtn">Add</span>
-          </div>
-          
-          <ul id="myUL">
-          </ul>
+        <div class="header">
+            <h1><i contenteditable="true" spellcheck="false">My</i> Task Board</h1>
+            <h2>Points = <i id="points">0</i></h2>
+            <div class="scoreboard">
+                <a href="scoreboard.html">                
+                    <span class="score">Scoreboard</span>
+                </a>
+            </div>
+            <div class="dropdown">
+                <span onclick="showAddDropdown()" class="addDropdown">+</span>
+                <div id="myDropdown" class="addDropdownContent">
+                    <p>Task</p>
+                    <input type="text" id="taskInput"><br><br><br>
+                    <p>Description</p>
+                    <textarea id="descriptionInput" rows="4" cols="30"></textarea><br><br>
+                    <p>Time (hrs)</p>
+                    <input type="number" id="timeInput" min="0"><br><br><br>
+                    <p>Color</p>
+                    <input type="color" id="colorInput" value="#90FD90"><br><br>
+                    <span onclick="newElement()" class="addBtn">Add</span>
+                </div>    
+            </div>
+        </div>
+        <div class="gradient">
+        </div>
+        <div id="myBoxes" class="boxes">
+        </div>
     </main>
 	<script src="index.js"></script>
   </body>

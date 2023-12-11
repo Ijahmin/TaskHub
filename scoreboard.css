@@ -1,0 +1,95 @@
+/* Include the padding and border in an element's total width and height */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #48426d;
+}
+
+h1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    margin: 0;
+    font-size: 60px;
+}
+
+/* Style the header */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fcc38e;
+    color: #48426d;
+    border: none;
+    padding: 80px 80px;
+    text-align: center;
+    font-family: 'Asap Condensed', serif;
+}
+
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.taskboard {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 25%;
+    margin: 4px;
+}
+
+.task {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-flex;
+    align-items: center;
+    color: #48426d;
+    padding: 12px;
+    height: 60px;
+    font-size: 32px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.task:hover, .task:focus {
+    background-color: #bbb;
+}
+
+.gradient {
+    position: absolute;
+    top: 160px;
+    left: 0;
+    height: 10px;
+    width: 100%;
+    background: linear-gradient(#fcc38e, #48426d);
+}
+
+.grid {
+    display: grid;
+    position: absolute;
+    top: 170px;
+    gap: 30px;
+    grid-template: repeat(4, 150px) / 2fr 3fr;
+    align-items: center;
+    font-family: "Monaco", monospace, serif;
+}
+
+.grid-item {
+    font-size: 44px;
+    justify-self: start;
+}
+
+.grid-item-img {
+    max-width: 25%;
+    height: auto;
+    justify-self: end;
+    border: 2px solid black;
+}

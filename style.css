@@ -1,114 +1,295 @@
 /* Include the padding and border in an element's total width and height */
 * {
     box-sizing: border-box;
-  }
-  
-  /* Remove margins and padding from the list */
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Style the list items */
-  ul li {
-    cursor: pointer;
-    position: relative;
-    padding: 12px 8px 12px 40px;
-    background: #eee;
-    font-size: 18px;
-    transition: 0.2s;
-  
-    /* make the list items unselectable */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Set all odd list items to a different color (zebra-stripes) */
-  ul li:nth-child(odd) {
-    background: #f9f9f9;
-  }
-  
-  /* Darker background-color on hover */
-  ul li:hover {
-    background: #ddd;
-  }
-  
-  /* When clicked on, add a background color and strike out text */
-  ul li.checked {
-    background: #888;
-    color: #fff;
-    text-decoration: line-through;
-  }
-  
-  /* Add a "checked" mark when clicked on */
-  ul li.checked::before {
-    content: '';
+}
+
+body {
+    background-color: #48426d;
+}
+
+h1 {
     position: absolute;
-    border-color: #fff;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    top: 10px;
-    left: 16px;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
-  }
-  
-  /* Style the close button */
-  .close {
-    position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
-    padding: 12px 16px 12px 16px;
-  }
-  
-  .close:hover {
-    background-color: #f44336;
-    color: white;
-  }
-  
-  /* Style the header */
-  .header {
-    background-color: #f44336;
-    padding: 30px 40px;
-    color: white;
-    text-align: center;
-  }
-  
-  /* Clear floats after the header */
-  .header:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  /* Style the input */
-  input {
+    padding: 10px;
     margin: 0;
-    border: none;
+    font-size: 60px;
+}
+
+h2 {
+    display: inline;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+/* Style the input */
+input {
+    margin: 0;
+    border: 1px solid gray;
     border-radius: 0;
-    width: 75%;
+    width: 100%;
     padding: 10px;
     float: left;
     font-size: 16px;
-  }
-  
-  /* Style the "Add" button */
-  .addBtn {
+}
+
+/* Style the header */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fcc38e;
+    color: #48426d;
+    border: none;
+    padding: 80px 80px;
+    text-align: center;
+    font-family: 'Asap Condensed', serif;
+}
+
+.header a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+/* Clear floats after the header */
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.scoreboard {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 25%;
+    margin: 4px;
+}
+
+.score {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-flex;
+    align-items: center;
+    color: #48426d;
+    padding: 12px;
+    height: 60px;
+    font-size: 32px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.score:hover, .score:focus {
+    background-color: #bbb;
+}
+
+.dropdown {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 25%;
+    margin: 4px;
+}
+
+/* Add task dropdown */
+.addDropdown {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #48426d;
+    padding: 12px;
+    width: 60px;
+    height: 60px;
+    font-size: 32px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.addDropdown:hover, .addDropdown:focus {
+    background-color: #bbb;
+}
+
+/* Content of add task dropdown */
+.addDropdownContent {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: #fcc38e;
+    color: #48426d;
+    padding: 10px;
+    border: 2px solid #48426d;
+    min-width: 25%;
+    text-align: left;
+    font-weight: bold;
+    z-index: 4;
+}
+
+/* Style the "Add" button */
+.addBtn {
     padding: 10px;
     width: 25%;
-    background: #d9d9d9;
-    color: #555;
-    float: left;
+    background-color: #fcc38e;
+    color: #48426d;
+    float: right;
     text-align: center;
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
     border-radius: 0;
-  }
-  
-  .addBtn:hover {
+}
+
+.addBtn:hover {
     background-color: #bbb;
-  }
+}
+
+.show {
+    display: block;
+} 
+
+.gradient {
+    position: absolute;
+    top: 160px;
+    left: 0;
+    height: 10px;
+    width: 100%;
+    background: linear-gradient(#fcc38e, #48426d);
+}
+
+.boxes {
+    position: absolute;
+    top: 170px;
+    display: grid;
+    grid-template: repeat(8, 187px) / repeat(8, 187px);
+    grid-auto-flow: dense;
+}
+
+.box {
+    position: relative;
+    display: inline-block;
+    margin: 15px;
+    padding: 15px;
+    font-family: "Asap Condensed", serif;
+    border-radius: 25px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.box .boxTask {
+    display: grid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    font-weight: bolder;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.box:hover .boxTask {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    text-align: center;
+}
+
+.box .boxContent {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 80%;
+    text-align: left;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.box:hover .boxContent {
+    top: 20%;
+    opacity: 1;
+}
+
+.box .boxContent p {
+    padding-bottom: 10%;
+}
+
+.box .boxPoints {
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+    font-weight: bold;
+    text-align: left;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.box:hover .boxPoints {
+    z-index: 2;
+    opacity: 1;
+}
+
+/* Style the delete button */
+.box .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 10%;
+    aspect-ratio: 1 / 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    opacity: 1;
+    z-index: 3;
+}
+
+.box:hover .close {
+    cursor: pointer;
+    z-index: 2;
+    opacity: 1;
+}
+
+/* Style the confirm button */
+.box .confirm {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    width: 10%;
+    aspect-ratio: 1 / 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20%;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.box:hover .confirm {
+    cursor: pointer;
+    z-index: 2;
+    opacity: 1;
+}
+
+.confirm:hover {
+    background-color: #9ded7b;
+}
+
+
